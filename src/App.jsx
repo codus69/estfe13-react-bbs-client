@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import BoardList from './components/BoardList';
 import { Routes, Route } from 'react-router';
+import BoardList from './components/BoardList';
 import Write from './components/Write';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BoardList />} />
         <Route path="/write" element={<Write />} />
-        {/* <Route path="/write" element={<View />} /> */}
+        <Route path="/view/:id" element={<View />} />
       </Routes>
     </div>
   );

@@ -9,7 +9,6 @@ export default function Write() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     axios
       .post('http://localhost:3000/write', {
         name: e.target.name.value,
