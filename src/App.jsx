@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router';
 import BoardList from './components/BoardList';
 import Write from './components/Write';
+import View from './components/View';
 
 function App() {
   return (
