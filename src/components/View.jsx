@@ -18,7 +18,7 @@ export default function View({ handleModify }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/view?id=${id}`)
+      .get(`${API_URL}/list/view?id=${id}`)
       .then((response) => {
         console.log(response.data); //[{..}]
         //setContent(response.data);
@@ -64,7 +64,7 @@ export default function View({ handleModify }) {
   const handleDelete = () => {
     if (window.confirm('정말 삭제할까요')) {
       axios
-        .post('http://localhost:3000/delete', {
+        .post(`${API_URL}/list/delete`, {
           id: id,
         })
         .then(() => {
@@ -87,7 +87,7 @@ export default function View({ handleModify }) {
       {content.content}
       {content.image && (
         <div>
-          <img src={`http://localhost:3000/${content.image}`} alt={content.title} style={{ maxWidth: '80%' }} />
+          <img src={`${API_URL}/list/${content.image}`} alt={content.title} style={{ maxWidth: '80%' }} />
         </div>
       )}
       <hr />
