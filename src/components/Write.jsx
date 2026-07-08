@@ -21,7 +21,7 @@ export default function Write({ isModifyMode, boardId, handleCancel }) {
     if (isModifyMode && boardId) {
       //boardId로 서버에 글 조회, 조회결과로 content 업데이트
       axios
-        .get(`${API_URL}/list/view?id=${boardId}`)
+        .get(`${API_URL}/view?id=${boardId}`)
         .then((response) => {
           console.log(response.data); //[{..}]
           //setContent(response.data);
@@ -98,7 +98,7 @@ export default function Write({ isModifyMode, boardId, handleCancel }) {
       console.log(key, value);
     }
     axios
-      .post(`${API_URL}/list/write`, formData, {
+      .post(`${API_URL}/write`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((response) => {
@@ -122,7 +122,7 @@ export default function Write({ isModifyMode, boardId, handleCancel }) {
       console.log(key, value);
     }
     axios
-      .post(`${API_URL}/list/update`, formData, {
+      .post(`${API_URL}/update`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then(() => {
@@ -181,7 +181,7 @@ export default function Write({ isModifyMode, boardId, handleCancel }) {
         </Form.Group>
         {content.image_path && (
           <div>
-            <img src={`${API_URL}/list/${content.image_path}`} alt={content.title} style={{ maxWidth: '200px' }} />
+            <img src={`${content.image_path}`} alt={content.title} style={{ maxWidth: '200px' }} />
             <Form.Check // prettier-ignore
               type="checkbox"
               id={`default-check`}
